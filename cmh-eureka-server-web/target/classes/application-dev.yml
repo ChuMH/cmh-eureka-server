@@ -1,0 +1,18 @@
+server:
+  port: 8010
+
+
+eureka:
+
+  instance:
+    hostname: standalone
+    instance-id: ${spring.application.name}:${vcap.application.instance_id:&{spring.application.instance_id:${random.value}}}
+  client:
+    register-with-eureka: false #表明该服务不会向eureka server注册自己的信息
+    fetch-registry: false #表明该服务不会向eureka server获取注册信息
+
+spring:
+  application:
+    name: eureka-service
+
+
